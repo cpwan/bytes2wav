@@ -115,7 +115,7 @@ def convert_bytes_to_wav_using_pipe(input_bytes):
         raise RuntimeError(f"FFmpeg error: {proc.stderr.decode(errors='replace')}")
     return proc.stdout
 
-def convert(input_bytes):
+def bytes2wavbytes(input_bytes):
     """
     Main function: Convert input bytes (audio/video) to WAV byte stream.
     Detects format, chooses approach, and robustly handles errors.
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     with open(sys.argv[1], "rb") as fin:
         input_bytes = fin.read()
     try:
-        wav_bytes = convert(input_bytes)
+        wav_bytes = bytes2wavbytes(input_bytes)
         with open(sys.argv[2], "wb") as fout:
             fout.write(wav_bytes)
         print(f"Conversion successful: {sys.argv[2]}")

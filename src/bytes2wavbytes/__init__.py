@@ -1,3 +1,3 @@
 # Package initialization
-from .utils import convert
+from .utils import bytes2wavbytes
 
